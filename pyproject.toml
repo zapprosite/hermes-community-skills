@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77.0,<83"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-community-skills"
+version = "1.0.0"
+description = "Community skills (25+ skills) para hermes-agent"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+authors = [{ name = "Will Zapprosite" }]
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "hermes-agent>=0.16.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9.0",
+  "pytest-asyncio>=0.23",
+  "mypy>=1.10",
+  "ruff>=0.6",
+]
+
+[project.entry-points."hermes_agent.plugins"]
+hermes_community_skills = "hermes_community_skills.plugin:communityskillsPlugin"
+
+[tool.setuptools.packages.find]
+where = ["src"]
